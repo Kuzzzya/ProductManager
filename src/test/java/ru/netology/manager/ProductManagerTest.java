@@ -96,14 +96,10 @@ class ProductManagerTest {
     public void searchBy() {
         man.add(second);
         man.add(ninth);
-        man.add(eighth);
-        man.add(seventh);
-        man.add(sixth);
 
-        man.searchBy("22");
-
-        Product[] expected = {sixth, seventh, eighth, ninth, second};
+        Product[] products = man.searchBy("22");
+        man.removeById(9);
         Product[] actual = man.getAll();
-        assertArrayEquals(expected, actual);
+        assertArrayEquals(products, actual);
     }
 }
