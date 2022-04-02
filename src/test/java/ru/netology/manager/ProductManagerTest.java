@@ -97,9 +97,11 @@ class ProductManagerTest {
         man.add(second);
         man.add(ninth);
 
-        Product[] products = man.searchBy("22");
+        Product[] search = man.searchBy("22");
         man.removeById(9);
+        Product[] expected = {second};
+
         Product[] actual = man.getAll();
-        assertArrayEquals(products, actual);
+        assertArrayEquals(search, actual, String.valueOf(expected));
     }
 }
